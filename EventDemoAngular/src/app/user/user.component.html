@@ -1,0 +1,31 @@
+<!-- <div>
+  <ul *ngFor="let user of users$ ">
+    <li>
+        {{user.username}} - {{user.usergender}} 
+        <button [routerLink]="['/user', user.userid]" class="btn btn primary">
+          User Details 
+        </button>
+    </li>
+  </ul>
+</div> -->
+
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Detail</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users$">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{user.username}}</td>
+        <td>{{user.usergender}}</td>
+        <td><button [routerLink]="['/user', user.userid]" class="btn btn primary">
+          User Details 
+        </button></td>
+      </tr>
+    </tbody>
+  </table>

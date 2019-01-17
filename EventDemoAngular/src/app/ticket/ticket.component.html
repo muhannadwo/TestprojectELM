@@ -1,0 +1,85 @@
+
+
+<!-- <div>
+  <ul *ngFor="let ticket of ticket$ ">
+    <li>
+        {{ticket.ticketid}} 
+        <! <button [routerLink]="['/user', user.userid]" class="btn btn primary">
+          User Details 
+        </button> -->
+    <!-- </li>
+  </ul>
+</div> --> 
+<div>
+ <ul style="text-align:center;" *ngFor="let ticket$ of ticket$">
+  <p> Ticket Details : ID -> {{ ticket$.ticketid}}</p>
+  <hr>
+   EventName : {{ticket$.eventname}} <br><br>
+   EventDate : {{ticket$.eventdate}} <br><br>
+   <button (click)="getCanceled(ticket$.ticketid)" class="btn btn primary" >Delete Ticket</button>
+
+
+
+   <div style="background-color: white" *ngIf="ticket$.attended">
+     <H1 style="color: gray; text-align:center;"> Add Rate/Comment </H1>
+     <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+       <form novalidate [formGroup]="myRateForm" >
+
+
+         <div class="form-group">
+           <label for="comment">Comment:</label>
+           <textarea class="form-control" rows="5" id="feedbackcomment" name="text" formControlName="feedbackcomment"></textarea>
+         </div>
+
+         <div class="form-group">
+           <label for="eventrate"> Rate Event :</label>
+           <select class="form-group" id="feedbackrate" formControlName="feedbackrate" name="feedbackrate">
+             <option value="" disabled>Select Rate</option>
+             <option value=1 >1</option>
+             <option value=2 >2</option>
+             <option value=3 >3</option>
+             <option value=4 >4</option>
+             <option value=5 >5</option>
+           </select>
+         </div>
+
+
+
+         <button type="submit" class="btn btn-primary"
+                 (click)="addFeed(ticket$.ticketid)"
+                 [disabled]="!myRateForm.valid">Submit</button>
+
+       </form>
+     </div>
+   </div>
+
+ </ul>
+
+
+</div>
+
+
+
+
+
+<div style="text-align:center;">
+    <button *ngIf="isAdmin()" (click)="getTicketsCanceled()" class="btn btn primary" >AllActiveTickets</button>
+</div>
+<br><br><br>
+
+
+<div *ngIf="isAdmin()">
+    <ul style="text-align:center;" *ngFor="let tickets$ of tickets$">
+     <p> List Of Tickets Booked Details </p>
+     <hr>
+   
+      TicketId  : {{ tickets$.ticketid}} <br><br>
+      EventName : {{tickets$.eventname}} <br><br>
+      EventDate : {{tickets$.eventdate}} <br><br><br>
+   
+      
+    </ul>
+   </div>
+
+<!--user rate-->
+

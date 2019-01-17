@@ -1,0 +1,75 @@
+
+
+<!-- <div>
+    <ul *ngFor="let comment of comment$ ">
+      <li>
+          EventName  : {{comment.eventname}}
+          Comment Id : {{comment.commentid}}<br>
+          Comment    : {{comment.ccomment}}<br>
+          EventRate  : {{comment.eventrate}}<br><br><br>
+           <button [routerLink]="['/event', event.eventid]" class="btn btn primary">
+            Event Details
+          </button> -->
+      <!-- </li>
+    </ul>
+  </div> -->
+
+
+
+  <table class="table table-striped table-dark" *ngIf="isUser()">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">EventName</th>
+          <th scope="col">CommentID</th>
+          <th scope="col">Comment</th>
+          <th scope="col">EventRate</th>
+
+
+
+        </tr>
+      </thead>
+
+      <tbody  *ngFor="let comment of comment$ ">
+
+        <tr>
+          <th scope="row">-</th>
+          <td>{{comment.eventname}}</td>
+          <td>{{comment.commentid}}</td>
+          <td>{{comment.ccomment}}</td>
+          <td>{{comment.eventrate}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+<table class="table table-striped table-dark" *ngIf="isAdmin()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">EventName</th>
+    <th scope="col">CommentID</th>
+    <th scope="col">User</th>
+    <th scope="col">Comment</th>
+    <th scope="col">EventRate</th>
+
+
+
+  </tr>
+  </thead>
+
+  <tbody  *ngFor="let comment of allComment ">
+
+  <tr>
+    <th scope="row">-</th>
+    <td>{{comment.eventname}}</td>
+    <td>{{comment.commentid}}</td>
+    <td>{{comment.userid.username}}</td>
+    <td>{{comment.ccomment}}</td>
+    <td>{{comment.eventrate}}</td>
+
+
+  </tr>
+  </tbody>
+</table>
+

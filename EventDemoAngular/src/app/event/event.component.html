@@ -1,0 +1,120 @@
+
+<input #eventName type="text" class="input-group-text">
+<button (click)="searchEvents(eventName.value)" class="btn btn-danger">Search</button>
+<br><br><br>
+
+
+  <table class="table table-striped table-light" *ngIf="eventName.value.length>0">
+    <!--<thead *ngFor="let events of searchevent$ ">-->
+    <!--<tr>-->
+      <!--<th scope="col">#</th>-->
+      <!--<th scope="col">{{events.eventname}}</th>-->
+      <!--<th scope="col">{{events.eventdate}}</th>-->
+
+
+    <!--</tr>-->
+    <!--</thead>-->
+    <tbody  *ngFor="let events of searchevent$ ">
+    <tr>
+      <th scope="row">-</th>
+      <td>{{ events.eventname}}</td>
+      <td>{{events.eventdate}}</td>
+      <td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>
+
+
+
+    </tr>
+    </tbody>
+  </table>
+
+  <!--<p *ngIf="!eventName.value">Not Found!</p>-->
+
+
+<br><br><br><br><br>
+<hr>
+
+<!--admin table-->
+<table class="table table-striped table-dark" *ngIf="isAdmin()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">EventName</th>
+    <th scope="col">Eventdate</th>
+    <th scope="col">Details</th>
+
+
+  </tr>
+  </thead>
+  <tbody  *ngFor="let events of events$ ">
+  <tr>
+    <th scope="row">-</th>
+    <td>{{ events.eventname}}</td>
+    <td>{{events.eventdate}}</td>
+    <td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>
+
+
+
+  </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-striped table-dark" *ngIf="isOrg()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">EventName</th>
+    <th scope="col">Eventdate</th>
+    <th scope="col">Details</th>
+
+
+  </tr>
+  </thead>
+  <tbody  *ngFor="let events of orgevents$ ">
+  <tr>
+    <th scope="row">-</th>
+    <td>{{ events.eventname}}</td>
+    <td>{{events.eventdate}}</td>
+    <td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>
+
+
+
+  </tr>
+  </tbody>
+</table>
+
+
+
+<table class="table table-striped table-dark" *ngIf="isUser()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">EventName</th>
+    <th scope="col">Eventdate</th>
+    <th scope="col">Details</th>
+
+
+  </tr>
+  </thead>
+  <tbody  *ngFor="let events of event$ ">
+  <tr>
+    <th scope="row">-</th>
+    <td>{{ events.eventname}}</td>
+    <td>{{events.eventdate}}</td>
+    <td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>
+
+
+
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+

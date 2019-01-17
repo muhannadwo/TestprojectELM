@@ -1,0 +1,163 @@
+
+
+<!--<div style="text-align:center;" *ngIf=" user$ | async as user;">-->
+    <!--<p> User Details : {{ user.username}}</p>-->
+    <!--<hr>-->
+  <!---->
+     <!--Email : {{user.useremail}} <br><br> -->
+     <!--City : {{user.city}} <br><br>-->
+     <!--Gender : {{user.usergender}} <br><br> -->
+    <!--Firstname : {{user.firstname}} <br><br>-->
+     <!--Lastname :{{user.lastname}} <br><br>-->
+      <!--Phone number :{{user.phonenumber}} <br><br>-->
+      <!--DOB :{{user.userdate}}<br><br>-->
+      <!--UserNumber :{{user.count}}<br><br>-->
+
+  <!---->
+      <!--<button (click)="deleteUser()" class="btn btn primary"> Delete  </button>-->
+      <!--<button (click)="EditUser()" class="btn btn primary"> Edit  </button>-->
+      <!--&lt;!&ndash; <button routerLink="/events" class="btn btn primary"> View Events  </button> &ndash;&gt;-->
+      <!--&lt;!&ndash; <button routerLink="/tickets" class="btn btn primary"> Tickets  </button> &ndash;&gt;-->
+      <!--&lt;!&ndash; <button routerLink="/comments" class="btn btn primary"> Comments  </button> &ndash;&gt;-->
+
+
+
+      <!---->
+
+<!--</div>-->
+<!--<br><br>-->
+
+
+
+
+
+<div class="container-fluid" id="main">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <!--<div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">-->
+                <!--<ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">                    -->
+                    <!--<li class="nav-item"><a class= "nav-link" routerLink="/events" >View Events</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link"  routerLink="/tickets" >MyTickets</a></li>-->
+                    <!--<li class="nav-item"><a class="nav-link"  routerLink="/comments" >Comments</a></li>-->
+                  <!--<li class="nav-item"><a class="nav-link"  [routerLink]="['/addevents']" >Create An Event</a></li>-->
+                  <!--<li class="nav-item"><a class="nav-link"  routerLink="/home" >Home</a></li>-->
+                  <!--<button [routerLink]="['/addevents']" class="btn btn primary" *ngIf="isOrg()"> Create Event </button>-->
+
+
+
+                <!--</ul>-->
+            </div>
+            <!--/col-->
+    
+            <div class="col main pt-5 mt-3">
+                <h1 class="display-4 d-none d-sm-block">
+                 Dashboard
+                </h1>
+                <p class="lead d-none d-sm-block"> Demo Organizer Panel</p>
+    
+                <!-- this is for the feedback row -->
+                <div class="row mb-3" >
+                    <div class="col-xl-3 col-sm-6 py-2" *ngIf=" user$ | async as user;">
+                        <div class="card bg-success text-white h-100">
+                            <div class="card-body bg-success">
+                                <div class="rotate">
+                                    <i class="fa fa-user fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">User Number </h6>
+                                <h1 class="display-4">{{user.count}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2" *ngIf="eventactivecounter">
+                        <div class="card text-white bg-danger h-100">
+                            <div class="card-body bg-danger">
+                                <div class="rotate">
+                                    <i class="fa fa-list fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Approved Events</h6>
+                                <h1 class="display-4">{{eventactivecounter}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2"  *ngIf="ticketCounter">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body bg-info">
+                                <div class="rotate">
+                                    <i class="fa fa-twitter fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase"> All Tickets Booked </h6>
+                                <h1 class="display-4">{{ticketCounter}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-xl-3 col-sm-6 py-2" *ngIf=" comment$ | async as comment$;">-->
+                        <!--<div class="card text-white bg-warning h-100">-->
+                            <!--<div class="card-body">-->
+                                <!--<div class="rotate">-->
+                                    <!--<i class="fa fa-share fa-4x"></i>-->
+                                <!--</div>-->
+                                <!--<h6 class="text-uppercase">All Comments Commented</h6>-->
+                                <!--<h1 class="display-4">{{comment$.count}}</h1>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+
+
+
+
+              <div class="container-fluid">
+
+                <a class="nav-link" routerLink="/events" class=" btn btn-outline-dark btn-block btn-md">MyEvents</a>
+                <a class="nav-link" routerLink="/tickets"  class=" btn btn-outline-dark btn-block btn-md">Tickets</a>
+                <a class="nav-link" routerLink="/addevents" class=" btn btn-outline-dark btn-block btn-md">AddAnEvent</a>
+                <a class="nav-link" routerLink="/feedback" class=" btn btn-outline-dark btn-block btn-md" >UsersFeedback</a>
+                <a class="nav-link" routerLink="/home" class=" btn btn-outline-dark btn-block btn-md">Home</a>
+
+              </div>
+              <hr>
+
+
+              <div class="col-md-6 col-sm-6" style="color:black;" *ngIf=" user$ | async as user;" >
+                <br><br>
+                <h2 class="card-title">Name: {{ user.username}}</h2>
+
+                <strong>Email : {{user.useremail}} <br><br> </strong>
+                <strong>City : {{user.city}} <br><br></strong>
+                <strong>Gender : {{user.usergender}} <br><br> </strong>
+                <strong>FirstName : {{user.firstname}} <br><br></strong>
+                <strong>LastName :{{user.lastname}} <br><br></strong>
+                <strong>PhoneNumber :{{user.phonenumber}} <br><br></strong>
+                <strong>DOB :{{user.userdate}}<br><br></strong>
+                <strong>UserNumber :{{user.count}}<br><br></strong>
+              </div>
+
+
+
+
+              <div class="col-md-3 col-sm-6 text-center" style="float: right">
+                <button class="btn btn-primary btn-block btn-md btn-danger"  (click)="deleteUser()"><span class="fa fa-facebook-square"></span> Delete  </button>
+              </div>
+
+              <div class="col-md-3 col-sm-6 text-center" style="float: right">
+
+                <button class="btn btn-success btn-block btn-md"  (click)="EditUser()"><span class="fa fa-twitter-square"></span> Edit </button>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <p class="lead mt-5">
+                Testing Template For Dashbored ..
+              </p>

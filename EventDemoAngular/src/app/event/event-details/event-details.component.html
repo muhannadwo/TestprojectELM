@@ -1,0 +1,277 @@
+<table class="table table-striped table-dark" *ngIf="isAdmin()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">EventName</th>
+    <th scope="col">EventCapacity</th>
+    <th scope="col">EventCity</th>
+    <th scope="col">EventTime</th>
+    <th scope="col">Eventdate</th>
+    <th scope="col">EventSeatsLeft</th>
+
+
+  </tr>
+  </thead>
+  <tbody  *ngIf="event$ as event; else Loading">
+  <tr>
+    <th scope="row">-</th>
+    <td>{{ event.eventname}}</td>
+    <td style="text-align:center;">{{event.eventcapacity}}</td>
+    <td>{{event.eventcity}}</td>
+    <td>{{event.eventtime}}</td>
+    <td>{{event.eventdate}}</td>
+    <td style="text-align:center;">{{event.ecount}}</td>
+    <td><button class="btn btn primary" routerLink="/home">Home</button></td>
+    <td><button  *ngIf="isAdmin()" (click)="dactiveEvent()" class="btn btn primary" [disabled]="!disableEvent()"> Dectivate Event </button></td>
+    <td><button  *ngIf="isAdmin()" (click)="activeEvent()" class="btn btn primary" [disabled]="!enableEvent()"> Activate Event </button></td>
+
+
+
+
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+
+<table class="table table-striped table-dark" *ngIf="isOrg()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">EventName</th>
+    <th scope="col">EventCapacity</th>
+    <th scope="col">EventCity</th>
+    <th scope="col">EventTime</th>
+    <th scope="col">Eventdate</th>
+    <th scope="col">EventSeatsLeft</th>
+
+
+  </tr>
+  </thead>
+  <tbody  *ngIf="event$ as event; else Loading">
+  <tr>
+    <th scope="row">-</th>
+    <td>{{ event.eventname}}</td>
+    <td style="text-align:center;">{{event.eventcapacity}}</td>
+    <td>{{event.eventcity}}</td>
+    <td>{{event.eventtime}}</td>
+    <td>{{event.eventdate}}</td>
+    <td style="text-align:center;">{{event.ecount}}</td>
+    <td><button class="btn btn primary" routerLink="/home">Home</button></td>
+    <td><button  (click)="deleteEvent()" class="btn btn primary" *ngIf="isOrg()"> Delete Event </button></td>
+    <td><button [routerLink]="['/eventupdate', event.eventid]" class="btn btn primary" *ngIf="isOrg()"> Update Event </button></td>
+
+  </tr>
+  </tbody>
+</table>
+
+
+<!-- Users For ORG-->
+
+<table class="table table-striped table-dark" *ngIf="isOrg()">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">TicketId</th>
+    <th scope="col">EventId</th>
+    <th scope="col">UserName</th>
+    <th scope="col">UserId</th>
+    <th scope="col">Attended</th>
+  </tr>
+  </thead>
+  <tbody  *ngFor="let tickets of tickets$">
+  <tr>
+    <th scope="row">-</th>
+    <td>{{ tickets.ticketid}}</td>
+    <td>{{ tickets.eventsid.eventid}}</td>
+    <td>{{tickets.attenderid.username}}</td>
+    <td>{{tickets.attenderid.userid}}</td>
+    <td>{{tickets.attended}}</td>
+    <td><button class="btn btn primary" (click)="userAttend(tickets.ticketid)" [disabled]="tickets.attended"> Attended </button></td>
+
+
+
+
+  </tr>
+  </tbody>
+</table>
+
+<!--EndUsers-->
+
+
+
+
+
+
+
+
+<table class="table table-striped table-dark" *ngIf="isUser()">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">EventName</th>
+        <th scope="col">EventCapacity</th>
+        <th scope="col">EventCity</th>
+        <th scope="col">EventTime</th>
+        <th scope="col">Eventdate</th>
+        <th scope="col">EventSeatsLeft</th>
+        
+
+      </tr>
+    </thead>
+    <tbody  *ngIf="event$ as event; else Loading">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{ event.eventname}}</td>
+        <td style="text-align:center;">{{event.eventcapacity}}</td>
+        <td>{{event.eventcity}}</td>
+        <td>{{event.eventtime}}</td>
+        <td>{{event.eventdate}}</td>
+        <td style="text-align:center;">{{event.ecount}}</td>
+        <td><button class="btn btn primary" routerLink="/home">Home</button></td>
+        <td><button class="btn btn primary" *ngIf="isUser()" (click)="bookTicket()" [disabled]="!enableBook()">Book</button></td>
+
+
+
+
+      </tr>
+    </tbody>
+</table>
+<!--&lt;!&ndash;user rate&ndash;&gt;-->
+<!--<div style="background-color: white" *ngIf="isUser()">-->
+  <!--<H1 style="color: gray; text-align:center;"> Add Rate/Comment </H1>-->
+  <!--<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">-->
+    <!--<form novalidate [formGroup]="myRateForm" (ngSubmit)="addFeed(ticket$.ticketid)">-->
+
+      <!--&lt;!&ndash; <div class="form-group">-->
+        <!--<label for="inputname">Comment :</label>-->
+        <!--<input type="textbox" class="form-control" id="comment"-->
+               <!--placeholder="Enter Comment" name="comment"-->
+               <!--formControlName="ccomment">-->
+      <!--</div> &ndash;&gt;-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="comment">Comment:</label>-->
+        <!--<textarea class="form-control" rows="5" id="feedbackcomment" name="text" formControlName="feedbackcomment"></textarea>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="eventrate"> Rate Event :</label>-->
+        <!--<select class="form-group" id="feedbackrate" formControlName="feedbackrate" name="feedbackrate">-->
+          <!--<option value="" disabled>Select Rate</option>-->
+          <!--<option value=1 >1</option>-->
+          <!--<option value=2 >2</option>-->
+          <!--<option value=3 >3</option>-->
+          <!--<option value=4 >4</option>-->
+          <!--<option value=5 >5</option>-->
+        <!--</select>-->
+      <!--</div>-->
+
+
+
+      <!--<button type="submit" class="btn btn-primary"-->
+              <!--[disabled]="!myRateForm.valid">Submit</button>-->
+
+    <!--</form>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+<!-- <div style="text-align:center;" *ngIf="event$ as event; else Loading">
+    <p> Event Details : {{event.eventname}} </p>
+    <hr>
+
+    
+    Event Date : {{event.eventdate}} <br><br>
+    Event Capacity : {{event.eventcapacity}} <br><br>
+    Event City : {{event.eventcity}} <br><br>
+    Event Time : {{event.eventtime}}</label> <br><br>
+    Event Seats Booked : {{event.ecount}} <br><br> -->
+
+     <!-- <button *ngIf="isAdmin()" (click)="activeEvent()" class="btn btn primary"> Activate Event </button>
+     <button *ngIf="isOrg()" (click)="deleteEvent()" class="btn btn primary"> Delete Event </button>
+     <button class="btn btn primary" routerLink="/home">Home</button>
+     <button class="btn btn primary" *ngIf="isUser()" (click)="bookTicket()">Book?</button> -->
+      
+     <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">EventComment</th>
+            <th scope="col">EventRate</th>
+ </tr>
+    </thead>
+
+    <tbody  *ngFor="let comment of comment$">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{comment.ccomment}}</td>
+        <td>{{comment.eventrate}}</td>
+ </tr>
+    </tbody>
+</table>
+
+
+
+
+     <!-- <div class="form-group">
+     <br><br>
+     <H1 style="color: gray; text-align:center;">  Comments </H1>
+     <div>
+      <ul style="list-style-type:disc" *ngFor="let comment of comment$" class="list-group-item" style="text-align:center;">
+       <label> : {{comment.ccomment}} </label><br>
+       EventRate : {{comment.eventrate}}
+      </ul>
+     </div>
+     <br><br> -->
+    
+
+     <div style="background-color: white">
+        <H1 style="color: gray; text-align:center;"> Add Comment </H1>
+        <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+        <form novalidate [formGroup]="myForm">
+      
+            <!-- <div class="form-group">
+              <label for="inputname">Comment :</label>
+              <input type="textbox" class="form-control" id="comment"
+                     placeholder="Enter Comment" name="comment"
+                     formControlName="ccomment">
+            </div> -->
+
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment" name="text" formControlName="ccomment"></textarea>
+              </div>
+
+            <div class="form-group">
+                <label for="eventrate"> Rate Event :</label>
+                <select class="form-group" id="eventrate" formControlName="eventrate" name="eventrate">
+                  <option value="" disabled>Select Rate</option>
+                  <option value=1 >1</option>
+                  <option value=2 >2</option>
+                  <option value=3 >3</option>
+                  <option value=4 >4</option>
+                  <option value=5 >5</option>
+                </select>
+              </div>
+      
+      
+         
+          <button type="submit" class="btn btn-primary"
+                    (click)="addComment()"
+                    [disabled]="!myForm.valid">Submit</button>
+      
+                    <p style="float:right"> 
+                        <a routerLink="/home" class="btn btn primary"> Return to home </a>
+                      </p>
+          </form>
+       </div>
+      </div>
+     
+      

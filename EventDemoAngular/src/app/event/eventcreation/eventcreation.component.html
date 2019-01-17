@@ -1,0 +1,52 @@
+<div style="background-color: white">
+  <H1 style="color: gray; text-align:center;"> Create An Event </H1>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="myReactiveFormEvent">
+
+      <div class="form-group">
+        <label for="inputname">Event Name</label>
+        <input type="text" class="form-control" id="inputname"
+               placeholder="Enter Event Name" name="eventname"
+               formControlName="eventname">
+      </div>
+
+
+    <div class="form-group">
+      <label for="eventcapacity">Enter Event Capacity</label>
+      <input type="number" class="form-control"
+             formControlName="eventcapacity"
+             id="eventcapacity" placeholder="Enter Event Capacity" name="eventcapacity">
+    </div>
+
+    
+    <div class="form-group">
+        <label for="eventcity">Enter Event city</label>
+        <input type="text" class="form-control"
+               formControlName="eventcity"
+               id="eventcity" placeholder="Enter Event city" name="eventcity">
+      </div>
+
+    <div class="form-group">
+      <label for="eventdate">Enter Event Date</label>
+      <input type="date" class="form-control"
+             formControlName="eventdate"
+             id="eventdate" placeholder="Enter Event Date" name="eventdate">
+    </div>
+
+    <div class="form-group">
+      <label for="eventtime">Enter Event Time</label>
+      <input type="time" class="form-control"
+             formControlName="eventtime"
+             id="eventtime" placeholder="Enter Event city" name="eventtime">
+    </div>
+
+    <button type="submit" class="btn btn-primary"
+              (click)="onSubmitOrg()"
+              [disabled]="!myReactiveFormEvent.valid">Submit</button>
+
+              <p style="float:right"> 
+                  <a routerLink="/home" class="btn btn primary"> Return to home </a>
+                </p>
+    </form>
+ </div>
+</div>
