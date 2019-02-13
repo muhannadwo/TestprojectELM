@@ -1,0 +1,157 @@
+
+
+<!-- <div>
+    <ul *ngFor="let comment of comment$ ">
+      <li>
+          EventName  : {{comment.eventname}}
+          Comment Id : {{comment.commentid}}<br>
+          Comment    : {{comment.ccomment}}<br>
+          EventRate  : {{comment.eventrate}}<br><br><br>
+           <button [routerLink]="['/event', event.eventid]" class="btn btn primary">
+            Event Details
+          </button> -->
+      <!-- </li>
+    </ul>
+  </div> -->
+
+
+
+  <!--<table class="table" *ngIf="isUser()">-->
+      <!--<thead style="background-color: lightgray">-->
+        <!--<tr>-->
+          <!--<th scope="col">#</th>-->
+          <!--<th scope="col">EventName</th>-->
+          <!--<th scope="col">CommentID</th>-->
+          <!--<th scope="col">Comment</th>-->
+          <!--<th scope="col">EventRate</th>-->
+
+
+
+        <!--</tr>-->
+      <!--</thead>-->
+
+      <!--<tbody  *ngFor="let comment of comment$ ">-->
+
+        <!--<tr>-->
+          <!--<th scope="row">-</th>-->
+          <!--<td>{{comment.eventname}}</td>-->
+          <!--<td>{{comment.commentid}}</td>-->
+          <!--<td>{{comment.ccomment}}</td>-->
+          <!--<td>{{comment.eventrate}}</td>-->
+
+
+        <!--</tr>-->
+      <!--</tbody>-->
+    <!--</table>-->
+
+
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<div class="container" *ngIf="isUser()">
+  <div class="container">
+    <table class="table table-striped custab">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">EventName</th>
+        <th scope="col">CommentID</th>
+        <th scope="col">Comment</th>
+        <th scope="col">EventRate</th>
+
+
+
+      </tr>
+      </thead>
+
+      <tbody  *ngFor="let comment of comment$ ">
+
+      <tr>
+        <th scope="row">-</th>
+        <td>{{comment.eventname}}</td>
+        <td>{{comment.commentid}}</td>
+        <td>{{comment.ccomment}}</td>
+        <td>{{comment.eventrate}}</td>
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!--<table class="table" *ngIf="isAdmin()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">CommentID</th>-->
+    <!--<th scope="col">User</th>-->
+    <!--<th scope="col">Comment</th>-->
+    <!--<th scope="col">EventRate</th>-->
+
+
+
+  <!--</tr>-->
+  <!--</thead>-->
+
+  <!--<tbody  *ngFor="let comment of allComment ">-->
+
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{comment.eventname}}</td>-->
+    <!--<td>{{comment.commentid}}</td>-->
+    <!--<td>{{comment.userid.username}}</td>-->
+    <!--<td>{{comment.ccomment}}</td>-->
+    <!--<td>{{comment.eventrate}}</td>-->
+
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+
+<div class="container" *ngIf="isAdmin()">
+  <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">EventName</th>
+        <th scope="col">CommentID</th>
+        <th scope="col">User</th>
+        <th scope="col">Comment</th>
+        <th scope="col">EventRate</th>
+
+
+
+      </tr>
+      </thead>
+
+      <tbody  *ngFor="let comment of allComment ">
+
+      <tr>
+        <th scope="row">-</th>
+        <td>{{comment.eventname}}</td>
+        <td>{{comment.commentid}}</td>
+        <td>{{comment.userid.username}}</td>
+        <td>{{comment.ccomment}}</td>
+        <td>{{comment.eventrate}}</td>
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

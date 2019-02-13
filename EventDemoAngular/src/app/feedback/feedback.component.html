@@ -1,0 +1,54 @@
+<!--<table class="table">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">UserName</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">Comment</th>-->
+    <!--<th scope="col">Rate</th>-->
+
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngFor="let feedback of feedback$ ">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{feedback.username}}</td>-->
+    <!--<td>{{feedback.eventname}}</td>-->
+    <!--<td>{{feedback.feedbackcomment}}</td>-->
+    <!--<td>{{feedback.feedbackrate}}</td>-->
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="container">
+    <table class="table table-striped custab">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">UserName</th>
+        <th scope="col">EventName</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Rate</th>
+      </tr>
+      </thead>
+      <tbody  *ngFor="let feedback of feedback$ ">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{feedback.username}}</td>
+        <td>{{feedback.eventname}}</td>
+        <td>{{feedback.feedbackcomment}}</td>
+        <td>{{feedback.feedbackrate}}</td>
+        <!--<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+        <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

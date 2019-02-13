@@ -1,0 +1,229 @@
+
+<input #eventName type="text" class="input-group-text">
+<button (click)="searchEvents(eventName.value)" class="btn btn-danger">Search</button>
+<br><br><br>
+
+
+  <!--<table class="table" *ngIf="eventName.value.length>0">-->
+    <!--&lt;!&ndash;<thead *ngFor="let events of searchevent$ ">&ndash;&gt;-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col">#</th>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col">{{events.eventname}}</th>&ndash;&gt;-->
+      <!--&lt;!&ndash;<th scope="col">{{events.eventdate}}</th>&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+    <!--&lt;!&ndash;</thead>&ndash;&gt;-->
+    <!--<tbody  *ngFor="let events of searchevent$ ">-->
+    <!--<tr>-->
+      <!--<th scope="row">-</th>-->
+      <!--<td>{{ events.eventname}}</td>-->
+      <!--<td>{{events.eventdate}}</td>-->
+      <!--<td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>-->
+
+
+
+    <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+
+  <!--<p *ngIf="!eventName.value">Not Found!</p>-->
+
+
+<br><br><br><br><br>
+<hr>
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<div class="container">
+  <div class="container">
+    <table class="table table-striped custab">
+      <tbody  *ngFor="let events of searchevent$ ">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{ events.eventname}}</td>
+        <td>{{events.eventdate}}</td>
+        <td><button  [routerLink]="['/event', events.eventid]" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span></button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+<!--admin table-->
+<!--<table class="table" *ngIf="isAdmin()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">Eventdate</th>-->
+    <!--<th scope="col">Details</th>-->
+
+
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngFor="let events of events$ ">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{ events.eventname}}</td>-->
+    <!--<td>{{events.eventdate}}</td>-->
+    <!--<td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>-->
+
+
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+
+
+
+  <div class="container" *ngIf="isAdmin()">
+    <div class="container">
+      <table class="table table-striped custab">
+        <thead style="background-color: lightgray">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">EventName</th>
+          <th scope="col">Eventdate</th>
+          <th scope="col">Details</th>
+
+
+        </tr>
+        </thead>
+        <tbody  *ngFor="let events of events$ ">
+        <tr>
+          <th scope="row">-</th>
+          <td>{{ events.eventname}}</td>
+          <td>{{events.eventdate}}</td>
+          <td><button  [routerLink]="['/event', events.eventid]" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span></button></td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+<!--<table class="table" *ngIf="isOrg()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">Eventdate</th>-->
+    <!--<th scope="col">Details</th>-->
+
+
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngFor="let events of orgevents$ ">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{ events.eventname}}</td>-->
+    <!--<td>{{events.eventdate}}</td>-->
+    <!--<td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>-->
+
+
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+
+  <div class="container" *ngIf="isOrg()">
+    <div class="container">
+      <table class="table table-striped custab">
+        <thead style="background-color: lightgray">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">EventName</th>
+          <th scope="col">Eventdate</th>
+          <th scope="col">Details</th>
+
+
+        </tr>
+        </thead>
+        <tbody  *ngFor="let events of orgevents$ ">
+        <tr>
+          <th scope="row">-</th>
+          <td>{{ events.eventname}}</td>
+          <td>{{events.eventdate}}</td>
+          <td><button  [routerLink]="['/event', events.eventid]" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span></button></td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+<!--<table class="table" *ngIf="isUser()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">Eventdate</th>-->
+    <!--<th scope="col">Details</th>-->
+
+
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngFor="let events of event$ ">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{ events.eventname}}</td>-->
+    <!--<td>{{events.eventdate}}</td>-->
+    <!--<td><button [routerLink]="['/event', events.eventid]" class="btn btn primary">Details</button></td>-->
+
+
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+
+  <div class="container" *ngIf="isUser()">
+    <div class="container">
+      <table class="table table-striped custab">
+        <thead style="background-color: lightgray">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">EventName</th>
+          <th scope="col">Eventdate</th>
+          <th scope="col">Details</th>
+
+
+        </tr>
+        </thead>
+        <tbody  *ngFor="let events of event$ ">
+        <tr>
+          <th scope="row">-</th>
+          <td>{{ events.eventname}}</td>
+          <td>{{events.eventdate}}</td>
+          <td><button  [routerLink]="['/event', events.eventid]" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span></button></td>
+
+
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,114 @@
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
+
+.search-form .form-group {
+  float: left !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 100%;
+  border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #3596e0;
+  left: initial;
+  font-size: 14px;
+}
+
+body{
+  padding:10px;
+}
+
+progress[value]{
+  -webkit-apperance: none;
+  apperance: none;
+
+  width: 250px;
+  height: 20px;
+}
+
+progress{
+  -webkit-apperance: progress-bar;
+  box-sizing: border-box;
+  display:inline-bloack;
+  height: 1em;
+  width: 10em;
+  vertical-align: -0.2em;
+}
+
+input, textarea, keygen, button, isindex, user agent stylesheet meter, progress{
+  -webkit-writing-mode: horizontal-tb;
+}
+
+progress[value]::-webkit-progress-bar{
+  background-color: #DADDE6;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25) inset;
+}
+
+progress[value]::-webkit-progress-value{
+  background-image:
+    -webkit-linear-gradient(-45deg,
+    transparent 33%, rgba(0, 0, 0, .1) 33%,
+    rgba(0, 0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(top,
+    rgba(255, 255, 255, .25),
+    rgba(0, 0, 0, .25)),
+    -webkit-linear-gradient(left, #09c, #f44);
+
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+

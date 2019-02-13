@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/forms.css";
+
+body{
+  background-image:url('../src/assets/mu.jpg');
+  max-height: 100%;
+  max-width: 100%;
+}

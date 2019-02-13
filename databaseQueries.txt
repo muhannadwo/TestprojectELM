@@ -1,0 +1,28 @@
+
+
+insert into roles(rolename) values('ROLE_ADMIN'),('ROLE_ORG'),('ROLE_USER');
+
+insert into users (city,count,deleted,firstname,lastname,password,phonenumber,rolename,userdate,useremail,usergender,username,role) values
+ ('Riyadh',1,1,'Muhannad','Alomran','$2a$10$e/ZUFdJJW3rRDnir5UKwuOiQZGQDatnbfeXSQnxNq6lSJcB7k9Rlq',0545652143,'ROLE_ADMIN','1993-08-03','muh@muh.saa','Male','Muhannad','ROLE_ADMIN'),('Jeddah',2,1,'Khalid','Alomran','$2a$10$e/ZUFdJJW3rRDnir5UKwuOiQZGQDatnbfeXSQnxNq6lSJcB7k9Rlq',0545652143,'ROLE_ORG','1994-08-03','kh@muh.saa','Female','Khalid','ROLE_ORG'),
+ ('Jeddah',3,1,'Khalid','Alomran','$2a$10$e/ZUFdJJW3rRDnir5UKwuOiQZGQDatnbfeXSQnxNq6lSJcB7k9Rlq',0545652143,'ROLE_USER','1994-08-03','kh@muh.saa','Female','user','ROLE_USER');
+
+
+
+insert into events ( active,count,deleted,ecount,eventcapacity,eventcity,eventdate,eventname,eventtime,organizerid_userid) values 
+(1,1,0,0,2,'riyadh','2019-03-03','CarRacing','08-00-00',2);
+
+insert into ticket (attended, canceled,count, eventdate, eventname, attenderid_userid, eventsid_eventid ) values 
+(0,0,1,'2019-03-03','CarRacing',2,1);
+
+
+						
+insert into feedback (deleted,eventname,feedbackcomment,feedbackrate,username,ticketid_ticketid) values 
+(0,'CarRacing','good',3,'Khalid',1);
+
+insert into comment (canceled,ccomment,cdate,count,eventname,eventrate,eventsid_eventid,userid_userid) values 
+(0,'big nono','2019-01-01',1,'CarRacing',4,1,1);
+
+
+
+
+select* from users;

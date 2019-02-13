@@ -1,0 +1,157 @@
+<section class="container">
+  <h1>Tickets</h1>
+  <div *ngFor="let ticket$ of ticket$">
+    <article>
+      <section class="date">
+        <time>
+          <span>{{ticket$.ticketid}}</span>
+        </time>
+      </section>
+      <section class="card-cont">
+        <h3>#{{ticket$.eventsid.eventid}}</h3>
+        <h1>{{ticket$.eventname}}</h1>
+        <h3></h3>
+        <div>
+          <h3><i class="fa fa-calendar">{{ticket$.eventdate}}</i></h3>
+        </div>
+        <div>
+          <h3><i class="fa fa-calendar">{{ticket$.attenderid.username}}</i></h3>
+        </div>
+        <div>
+          <h3><i class="fa fa-calendar">{{ticket$.attenderid.phonenumber}}</i></h3>
+        </div>
+        <div class="even-info">
+          <i class="fa fa-map-marker">{{ticket$.eventsid.eventcity}}<br><button (click)="getCanceled(ticket$.ticketid)" class="btn btn-danger">Cancel</button></i>
+          <p>
+          </p>
+        </div>
+      </section>
+      <!--<a (click)="getCanceled(ticket$.ticketid)" class="btn btn-danger">Cancel</a>-->
+
+    </article><br>
+
+
+    <div style="background-color: white" *ngIf="ticket$.attended">
+      <br>
+      <H1 style="color: gray; text-align:center;"> Add Rate/Comment </H1>
+      <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+        <form novalidate [formGroup]="myRateForm" >
+
+
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="feedbackcomment" name="text" formControlName="feedbackcomment"></textarea>
+          </div>
+<br>
+          <div class="form-group">
+            <label for="eventrate"> Rate Event :</label>
+            <select class="form-group" id="feedbackrate" formControlName="feedbackrate" name="feedbackrate">
+              <option value="" disabled>Select Rate</option>
+              <option value=1 >1</option>
+              <option value=2 >2</option>
+              <option value=3 >3</option>
+              <option value=4 >4</option>
+              <option value=5 >5</option>
+            </select>
+          </div>
+
+
+
+          <button type="submit" class="btn btn-danger"
+                  (click)="addFeed(ticket$.ticketid)"
+                  [disabled]="!myRateForm.valid">Submit</button>
+
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<!-- <div>
+  <ul *ngFor="let ticket of ticket$ ">
+    <li>
+        {{ticket.ticketid}} 
+        <! <button [routerLink]="['/user', user.userid]" class="btn btn primary">
+          User Details 
+        </button> -->
+    <!-- </li>
+  </ul>
+</div> --> 
+<!--<div>-->
+ <!--<ul style="text-align:center;" *ngFor="let ticket$ of ticket$">-->
+  <!--<p> Ticket Details : ID -> {{ ticket$.ticketid}}</p>-->
+  <!--<hr>-->
+   <!--EventName : {{ticket$.eventname}} <br><br>-->
+   <!--EventDate : {{ticket$.eventdate}} <br><br>-->
+   <!--<button (click)="getCanceled(ticket$.ticketid)" class="btn btn primary" >Delete Ticket</button>-->
+
+
+
+
+
+
+
+
+
+
+<div style="text-align:center;">
+    <button *ngIf="isAdmin()" (click)="getTicketsCanceled()" class="btn btn primary" >AllActiveTickets</button>
+</div>
+<br><br><br>
+
+
+<div *ngIf="isAdmin()">
+
+    <ul style="text-align:center;" *ngFor="let tickets$ of tickets$">
+
+      <section class="container">
+          <article>
+            <section class="date">
+              <time>
+                <span>{{tickets$.ticketid}}</span>
+              </time>
+            </section>
+            <section class="card-cont">
+              <h3>#{{tickets$.eventsid.eventid}}</h3>
+              <h1>{{tickets$.eventname}}</h1>
+              <h3></h3>
+              <!--<h3>EVENTID:{{tickets$.eventsid.eventid}}</h3>-->
+              <div>
+                <h3><i class="fa fa-calendar">{{tickets$.eventdate}}</i></h3>
+              </div>
+              <div>
+                <h3><i class="fa fa-calendar">{{tickets$.attenderid.username}}</i></h3>
+              </div>
+              <div>
+                <h3><i class="fa fa-calendar">UserPhone:{{tickets$.attenderid.phonenumber}}</i></h3>
+                <h3><i class="fa fa-calendar">EventCity:{{tickets$.eventsid.eventcity}}</i></h3>
+                <h3><i class="fa fa-calendar">EventCapacity:{{tickets$.eventsid.eventcapacity}}</i></h3>
+              </div>
+            </section>
+            <!--<a (click)="getCanceled(ticket$.ticketid)" class="btn btn-danger">Cancel</a>-->
+
+          </article>
+      </section>
+      <br>
+
+
+
+          <!--<hr>-->
+   <!---->
+      <!--TicketId  : {{ tickets$.ticketid}} <br><br>-->
+      <!--EventName : {{tickets$.eventname}} <br><br>-->
+      <!--User:{{tickets$.attenderid.username}}<br><br>-->
+      <!--EventDate : {{tickets$.eventdate}} <br><br><br>-->
+   <!---->
+      <!---->
+    <!--</ul>-->
+   <!--</div>-->
+
+
+
+<!--user rate-->
+    </ul>
+</div>

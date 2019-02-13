@@ -1,0 +1,465 @@
+<!--<table class="table" *ngIf="isAdmin()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">EventCapacity</th>-->
+    <!--<th scope="col">EventCity</th>-->
+    <!--<th scope="col">EventTime</th>-->
+    <!--<th scope="col">Eventdate</th>-->
+    <!--<th scope="col">EventSeatsLeft</th>-->
+
+
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngIf="event$ as event; else Loading">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{ event.eventname}}</td>-->
+    <!--<td style="text-align:center;">{{event.eventcapacity}}</td>-->
+    <!--<td>{{event.eventcity}}</td>-->
+    <!--<td>{{event.eventtime}}</td>-->
+    <!--<td>{{event.eventdate}}</td>-->
+    <!--<td style="text-align:center;">{{event.ecount}}</td>-->
+    <!--<td><button class="btn btn primary" routerLink="/home">Home</button></td>-->
+    <!--<td><button  *ngIf="isAdmin()" (click)="dactiveEvent()" class="btn btn primary" [disabled]="!disableEvent()"> Dectivate Event </button></td>-->
+    <!--<td><button  *ngIf="isAdmin()" (click)="activeEvent()" class="btn btn primary" [disabled]="!enableEvent()"> Activate Event </button></td>-->
+
+
+
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+<div class="container" *ngIf="isAdmin()">
+  <div class="container">
+    <table class="table table-striped custab">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">EventName</th>
+        <th scope="col">EventCapacity</th>
+        <th scope="col">EventCity</th>
+        <th scope="col">EventTime</th>
+        <th scope="col">Eventdate</th>
+        <th scope="col">EventSeatsLeft</th>
+        <th scope="col">DeactivateEvent</th>
+        <th scope="col">AcivateEvent</th>
+
+
+
+      </tr>
+      </thead>
+      <tbody  *ngIf="event$ as event; else Loading">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{ event.eventname}}</td>
+        <td style="text-align:center;">{{event.eventcapacity}}</td>
+        <td>{{event.eventcity}}</td>
+        <td>{{event.eventtime}}</td>
+        <td>{{event.eventdate}}</td>
+        <td style="text-align:center;">{{event.ecount}}</td>
+        <td><button  *ngIf="isAdmin()" class='btn btn-info btn-xs' (click)="dactiveEvent()"  [disabled]="!disableEvent()"> Dectivate Event </button></td>
+        <td><button  *ngIf="isAdmin()" class='btn btn-info btn-xs' (click)="activeEvent()"  [disabled]="!enableEvent()"> Activate Event </button></td>
+
+
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+<!--<table class="table" *ngIf="isOrg()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">EventName</th>-->
+    <!--<th scope="col">EventCapacity</th>-->
+    <!--<th scope="col">EventCity</th>-->
+    <!--<th scope="col">EventTime</th>-->
+    <!--<th scope="col">Eventdate</th>-->
+    <!--<th scope="col">EventSeatsLeft</th>-->
+
+
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngIf="event$ as event; else Loading">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{ event.eventname}}</td>-->
+    <!--<td style="text-align:center;">{{event.eventcapacity}}</td>-->
+    <!--<td>{{event.eventcity}}</td>-->
+    <!--<td>{{event.eventtime}}</td>-->
+    <!--<td>{{event.eventdate}}</td>-->
+    <!--<td style="text-align:center;">{{event.ecount}}</td>-->
+    <!--<td><button class="btn btn primary" routerLink="/home">Home</button></td>-->
+    <!--<td><button  (click)="deleteEvent()" class="btn btn primary" *ngIf="isOrg()"> Delete Event </button></td>-->
+    <!--<td><button [routerLink]="['/eventupdate', event.eventid]" class="btn btn primary" *ngIf="isOrg()"> Update Event </button></td>-->
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container" *ngIf="isOrg()">
+  <div class="container">
+    <table class="table table-striped custab">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">EventName</th>
+        <th scope="col">EventCapacity</th>
+        <th scope="col">EventCity</th>
+        <th scope="col">EventTime</th>
+        <th scope="col">Eventdate</th>
+        <th scope="col">EventSeatsLeft</th>
+        <th scope="col">X</th>
+        <th scope="col">Edit</th>
+
+
+
+
+      </tr>
+      </thead>
+      <tbody  *ngIf="event$ as event; else Loading">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{ event.eventname}}</td>
+        <td style="text-align:center;">{{event.eventcapacity}}</td>
+        <td>{{event.eventcity}}</td>
+        <td>{{event.eventtime}}</td>
+        <td>{{event.eventdate}}</td>
+        <td style="text-align:center;">{{event.ecount}}</td>
+        <td><button  (click)="deleteEvent()" class="btn btn-danger btn-xs" *ngIf="isOrg()"><span class="glyphicon glyphicon-remove"></span></button></td>
+        <td><button [routerLink]="['/eventupdate', event.eventid]" class='btn btn-info btn-xs' *ngIf="isOrg()"><span class="glyphicon glyphicon-edit"></span>  </button></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Users For ORG-->
+
+<!--<table class="table" *ngIf="isOrg()">-->
+  <!--<thead style="background-color: lightgray">-->
+  <!--<tr>-->
+    <!--<th scope="col">#</th>-->
+    <!--<th scope="col">TicketId</th>-->
+    <!--<th scope="col">EventId</th>-->
+    <!--<th scope="col">UserName</th>-->
+    <!--<th scope="col">UserId</th>-->
+    <!--<th scope="col">Attended</th>-->
+  <!--</tr>-->
+  <!--</thead>-->
+  <!--<tbody  *ngFor="let tickets of tickets$">-->
+  <!--<tr>-->
+    <!--<th scope="row">-</th>-->
+    <!--<td>{{ tickets.ticketid}}</td>-->
+    <!--<td>{{ tickets.eventsid.eventid}}</td>-->
+    <!--<td>{{tickets.attenderid.username}}</td>-->
+    <!--<td>{{tickets.attenderid.userid}}</td>-->
+    <!--<td>{{tickets.attended}}</td>-->
+    <!--<td><button class="btn btn primary" (click)="userAttend(tickets.ticketid)" [disabled]="tickets.attended"> Attended </button></td>-->
+
+
+
+
+  <!--</tr>-->
+  <!--</tbody>-->
+<!--</table>-->
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+  <div class="container">
+    <table class="table table-striped custab" *ngIf="isOrg()">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">TicketId</th>
+        <th scope="col">EventId</th>
+        <th scope="col">UserName</th>
+        <th scope="col">UserId</th>
+        <th scope="col">Attended</th>
+        <th scope="col">MakeAttend</th>
+      </tr>
+      </thead>
+      <tbody  *ngFor="let tickets of tickets$">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{ tickets.ticketid}}</td>
+        <td>{{ tickets.eventsid.eventid}}</td>
+        <td>{{tickets.attenderid.username}}</td>
+        <td>{{tickets.attenderid.userid}}</td>
+        <td>{{tickets.attended}}</td>
+        <td><button class="btn btn primary" class='btn btn-info btn-xs' (click)="userAttend(tickets.ticketid)" [disabled]="tickets.attended"> Attended </button></td>
+
+
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--EndUsers-->
+
+
+
+
+
+
+
+
+<!--<table class="table" *ngIf="isUser()">-->
+    <!--<thead style="background-color: lightgray">-->
+<!--<tr>-->
+  <!--<th scope="col">#</th>-->
+  <!--<th scope="col">EventName</th>-->
+  <!--<th scope="col">EventCapacity</th>-->
+  <!--<th scope="col">EventCity</th>-->
+  <!--<th scope="col">EventTime</th>-->
+  <!--<th scope="col">Eventdate</th>-->
+  <!--<th scope="col">EventSeatsLeft</th>-->
+
+
+<!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody  *ngIf="event$ as event; else Loading">-->
+      <!--<tr>-->
+        <!--<th scope="row">-</th>-->
+        <!--<td>{{ event.eventname}}</td>-->
+        <!--<td style="text-align:center;">{{event.eventcapacity}}</td>-->
+        <!--<td>{{event.eventcity}}</td>-->
+        <!--<td>{{event.eventtime}}</td>-->
+        <!--<td>{{event.eventdate}}</td>-->
+        <!--<td style="text-align:center;">{{event.ecount}}</td>-->
+        <!--<td><button class="btn btn primary" routerLink="/home">Home</button></td>-->
+        <!--<td><button class="btn btn primary" *ngIf="isUser()" (click)="bookTicket()" [disabled]="!enableBook()">Book</button></td>-->
+
+
+
+
+      <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+  <div class="container">
+    <table class="table table-striped custab" *ngIf="isUser()">
+      <thead style="background-color: lightgray">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">EventName</th>
+        <th scope="col">EventCapacity</th>
+        <th scope="col">EventCity</th>
+        <th scope="col">EventTime</th>
+        <th scope="col">Eventdate</th>
+        <th scope="col">EventSeatsLeft</th>
+        <th scope="col">Home</th>
+        <th scope="col">Book</th>
+
+
+
+      </tr>
+      </thead>
+      <tbody  *ngIf="event$ as event; else Loading">
+      <tr>
+        <th scope="row">-</th>
+        <td>{{ event.eventname}}</td>
+        <td style="text-align:center;">{{event.eventcapacity}}</td>
+        <td>{{event.eventcity}}</td>
+        <td>{{event.eventtime}}</td>
+        <td>{{event.eventdate}}</td>
+        <td style="text-align:center;">{{event.ecount}}</td>
+        <td><button class="btn btn primary" class='btn btn-info btn-xs' routerLink="/home">Home</button></td>
+        <td><button class="btn btn primary" class='btn btn-info btn-xs' *ngIf="isUser()" (click)="bookTicket()" [disabled]="!enableBook()">Book</button></td>
+        <!--<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>-->
+        <!--<a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>-->
+
+
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--&lt;!&ndash;user rate&ndash;&gt;-->
+<!--<div style="background-color: white" *ngIf="isUser()">-->
+  <!--<H1 style="color: gray; text-align:center;"> Add Rate/Comment </H1>-->
+  <!--<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">-->
+    <!--<form novalidate [formGroup]="myRateForm" (ngSubmit)="addFeed(ticket$.ticketid)">-->
+
+      <!--&lt;!&ndash; <div class="form-group">-->
+        <!--<label for="inputname">Comment :</label>-->
+        <!--<input type="textbox" class="form-control" id="comment"-->
+               <!--placeholder="Enter Comment" name="comment"-->
+               <!--formControlName="ccomment">-->
+      <!--</div> &ndash;&gt;-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="comment">Comment:</label>-->
+        <!--<textarea class="form-control" rows="5" id="feedbackcomment" name="text" formControlName="feedbackcomment"></textarea>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+        <!--<label for="eventrate"> Rate Event :</label>-->
+        <!--<select class="form-group" id="feedbackrate" formControlName="feedbackrate" name="feedbackrate">-->
+          <!--<option value="" disabled>Select Rate</option>-->
+          <!--<option value=1 >1</option>-->
+          <!--<option value=2 >2</option>-->
+          <!--<option value=3 >3</option>-->
+          <!--<option value=4 >4</option>-->
+          <!--<option value=5 >5</option>-->
+        <!--</select>-->
+      <!--</div>-->
+
+
+
+      <!--<button type="submit" class="btn btn-primary"-->
+              <!--[disabled]="!myRateForm.valid">Submit</button>-->
+
+    <!--</form>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+<!-- <div style="text-align:center;" *ngIf="event$ as event; else Loading">
+    <p> Event Details : {{event.eventname}} </p>
+    <hr>
+
+    
+    Event Date : {{event.eventdate}} <br><br>
+    Event Capacity : {{event.eventcapacity}} <br><br>
+    Event City : {{event.eventcity}} <br><br>
+    Event Time : {{event.eventtime}}</label> <br><br>
+    Event Seats Booked : {{event.ecount}} <br><br> -->
+
+     <!-- <button *ngIf="isAdmin()" (click)="activeEvent()" class="btn btn primary"> Activate Event </button>
+     <button *ngIf="isOrg()" (click)="deleteEvent()" class="btn btn primary"> Delete Event </button>
+     <button class="btn btn primary" routerLink="/home">Home</button>
+     <button class="btn btn primary" *ngIf="isUser()" (click)="bookTicket()">Book?</button> -->
+      
+     <!--<table class="table">-->
+        <!--<thead style="background-color: lightgray">-->
+          <!--<tr>-->
+            <!--<th scope="col">#</th>-->
+            <!--<th scope="col">EventComment</th>-->
+            <!--<th scope="col">EventRate</th>-->
+ <!--</tr>-->
+    <!--</thead>-->
+
+    <!--<tbody  *ngFor="let comment of comment$">-->
+      <!--<tr>-->
+        <!--<th scope="row">-</th>-->
+        <!--<td>{{comment.ccomment}}</td>-->
+        <!--<td>{{comment.eventrate}}</td>-->
+ <!--</tr>-->
+    <!--</tbody>-->
+<!--</table>-->
+
+
+
+
+
+
+     <!-- <div class="form-group">
+     <br><br>
+     <H1 style="color: gray; text-align:center;">  Comments </H1>
+     <div>
+      <ul style="list-style-type:disc" *ngFor="let comment of comment$" class="list-group-item" style="text-align:center;">
+       <label> : {{comment.ccomment}} </label><br>
+       EventRate : {{comment.eventrate}}
+      </ul>
+     </div>
+     <br><br> -->
+    
+
+     <div>
+        <div class="rounded" style="margin: 20px; padding: 20px">
+        <form novalidate [formGroup]="myForm">
+
+            <div class="form-group">
+                <textarea class="form-control" placeholder="comment..." rows="1" id="comment" name="text" formControlName="ccomment"></textarea>
+              </div>
+
+            <div class="form-group">
+                <label for="eventrate"> Rate Event :</label>
+                <select class="form-group" id="eventrate" formControlName="eventrate" name="eventrate">
+                  <option value="" disabled>Rate</option>
+                  <option value=1 >1</option>
+                  <option value=2 >2</option>
+                  <option value=3 >3</option>
+                  <option value=4 >4</option>
+                  <option value=5 >5</option>
+                </select>
+              </div>
+
+          <button type="submit" class="btn btn-primary"
+                    (click)="addComment()"
+                    [disabled]="!myForm.valid">Submit</button>
+          </form>
+       </div>
+      </div>
+
+
+
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!--
+Author : Maniruzzaman Akash
+Email  : manirujjamanakash@gmail.com
+-->
+
+<!--To Work with icons-->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<h2 class="text-center">User Rating / Comment</h2>
+<div class="container" *ngFor="let comment of comment$">
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-1">
+          <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+        </div>
+        <div class="col-md-10">
+          <p>
+            <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"><strong>{{comment.userid.username}}</strong></a></p>
+          <div class="progress-bar" style="float: right"> {{comment.eventrate}} </div>
+          <div class="clearfix"></div>
+          <p>{{comment.ccomment}}<p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+     
+      

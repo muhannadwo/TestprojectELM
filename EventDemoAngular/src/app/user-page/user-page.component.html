@@ -1,0 +1,249 @@
+
+
+<!-- <div style="text-align:center;" *ngIf=" user$ | async as user;">
+    <p> User Details : {{ user.username}}</p>
+    <hr>
+  
+     Email : {{user.useremail}} <br><br> 
+     City : {{user.city}} <br><br>
+     Gender : {{user.usergender}} <br><br> 
+    Firstname : {{user.firstname}} <br><br>
+     Lastname :{{user.lastname}} <br><br>
+      Phone number :{{user.phonenumber}} <br><br>
+      DOB :{{user.userdate}}<br><br>
+      UserNumber :{{user.count}}<br><br>
+
+</div> -->
+<br><br>
+
+
+
+
+<div class="container-fluid" id="main">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <!--<div class="col-md-1 col-lg-2" id="sidebar" role="navigation" style="background-color:lightskyblue; opacity: 0.9">-->
+                <!--<ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">-->
+                  <!--<li class="nav-item"><strong><a class="nav-link" routerLink="/events" class=" btn btn-outline-light">Events</a></strong></li>-->
+                  <!--<li class="nav-item"><strong><a class="nav-link" routerLink="/tickets" class=" btn btn-outline-light">Tickets</a></strong></li>-->
+                  <!--<li class="nav-item"><strong><a class="nav-link" routerLink="/comments" class=" btn btn-outline-light">Comments</a></strong></li>-->
+                  <!--<li class="nav-item"><strong><a class="nav-link" routerLink="/users" class=" btn btn-outline-light" >UserList</a></strong></li>-->
+                    <!---->
+                <!--</ul>-->
+            <!--</div>-->
+
+
+            <!--/col-->
+    
+            <div class="col main pt-5 mt-3">
+                <h1 class="display-4 d-none d-sm-block">
+                 Dashboard
+                </h1>
+                <p class="lead d-none d-sm-block"> Demo Admin Panel</p>
+    
+                <!-- this is for the feedback row -->
+                <div class="row mb-3" >
+                    <div class="col-xl-3 col-sm-6 py-2" *ngIf=" users$ ;">
+                        <div class="card bg-success text-white h-100">
+                            <div class="card-body bg-success">
+                                <div class="rotate">
+                                    <i class="fa fa-user fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Users Registered </h6>
+                                <h1 class="display-4">{{users$.length}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2" *ngIf=" events$ ;">
+                        <div class="card text-white bg-danger h-100">
+                            <div class="card-body bg-danger">
+                                <div class="rotate">
+                                    <i class="fa fa-list fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Events Registered</h6>
+                                <h1 class="display-4">{{events$.length}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2"  *ngIf=" tickets$ ;">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body bg-info">
+                                <div class="rotate">
+                                    <i class="fa fa-twitter fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase"> All Tickets Booked </h6>
+                                <h1 class="display-4">{{tickets$.length}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2" *ngIf=" comments$ ;">
+                        <div class="card text-white bg-warning h-100">
+                            <div class="card-body">
+                                <div class="rotate">
+                                    <i class="fa fa-share fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">All Comments Commented</h6>
+                                <h1 class="display-4">{{comments$.length}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+              <!--<div class="container">-->
+                <div class="row" style="justify-content: center" >
+                  <div class="col-md-6">
+                    <div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <h3 class="panel-title">
+                          <span class="glyphicon glyphicon-bookmark"></span> Quick Shortcuts</h3>
+                      </div>
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-xs-6 col-md-6">
+                            <a routerLink="/events" class="btn btn-danger btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Events</a>
+                            <a routerLink="/tickets" class="btn btn-warning btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Tickets</a>
+                            <a routerLink="/comments" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Comments</a>
+                            <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
+                          </div>
+                          <div class="col-xs-6 col-md-6">
+                            <a routerLink="/users" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Users</a>
+                            <a routerLink="/feedback" class="btn btn-info btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Feedback</a>
+                            <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
+                            <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
+                          </div>
+                        </div>
+                        <a href="http://www.jquery2dotnet.com/" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span> Website</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!--</div>-->
+
+
+              <!--<a class="nav-link" routerLink="/events" class=" btn btn-outline-dark btn-block btn-md">Events</a>-->
+
+              <!--<a class="nav-link" routerLink="/tickets" class=" btn btn-outline-dark btn-block btn-md">Tickets</a>-->
+
+              <!--<a class="nav-link" routerLink="/comments" class=" btn btn-outline-dark btn-block btn-md">Comments</a>-->
+
+              <!--<a class="nav-link" routerLink="/feedback" class=" btn btn-outline-dark btn-block btn-md" >Feedback</a>-->
+
+              <!--<a class="nav-link" routerLink="/users" class=" btn btn-outline-dark btn-block btn-md" >UserList</a>-->
+
+
+
+
+    
+               
+                <hr>
+
+
+
+              <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+              <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+              <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+              <!--<div class="container">-->
+                <div class="container" style="justify-content: center">
+                  <table class="table table-striped custab">
+                    <thead style="background-color: lightgray">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">UserName</th>
+                      <th scope="col">UserRole</th>
+                      <th scope="col">UserCity</th>
+                      <th scope="col">UserGender</th>
+                      <th scope="col">UserFirstName</th>
+                      <th scope="col">UserLAstName</th>
+                      <th scope="col">UserPhoneNumber</th>
+                      <th scope="col">UserDateOfBirth</th>
+                      <th scope="col">X</th>
+                      <th scope="col">Edit</th>
+
+
+
+
+                    </tr>
+                    </thead>
+                    <tbody  *ngIf=" user$ | async as user;">
+                    <tr>
+                      <th scope="row">-</th>
+                      <td>{{user.username}}</td>
+                      <td>{{user.rolename}}</td>
+                      <td>{{user.city}}</td>
+                      <td>{{user.usergender}}</td>
+                      <td>{{user.firstname}}</td>
+                      <td>{{user.lastname}}</td>
+                      <td>{{user.phonenumber}}</td>
+                      <td>{{user.userdate}}</td>
+                      <td><button  (click)="deleteUser()" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button></td>
+                      <td><button (click)="EditUser()" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span></button></td>
+
+
+
+
+
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <!--</div>-->
+
+
+
+
+
+
+
+                <!--<div class="container-fluid">-->
+
+                  <!--<div class="row">-->
+                        <!--<div class="col-12">-->
+                        <!--<div>-->
+                        <!--<div class="card-block">-->
+                        <!--<div class="row">-->
+
+
+
+                          <!--&lt;!&ndash;<img class="btn-md" src="assets/elm.jpg" alt="">&ndash;&gt;-->
+                        <!--<div class="col-md-6 col-sm-6" style="color:black;" *ngIf=" user$ | async as user;" >-->
+                            <!--<br><br>-->
+                        <!--<h2 class="card-title">Name: {{ user.username}}</h2>-->
+                        <!--<p class="card-text"><strong>Role: </strong> Admin </p>-->
+
+                                               <!--<strong>Email : {{user.useremail}} <br><br> </strong> -->
+                                               <!--<strong>City : {{user.city}} <br><br></strong>-->
+                                               <!--<strong>Gender : {{user.usergender}} <br><br> </strong> -->
+                                               <!--<strong>FirstName : {{user.firstname}} <br><br></strong>-->
+                                               <!--<strong>LastName :{{user.lastname}} <br><br></strong>-->
+                                               <!--<strong>PhoneNumber :{{user.phonenumber}} <br><br></strong>-->
+                                               <!--<strong>DOB :{{user.userdate}}<br><br></strong>-->
+                                               <!--<strong>UserNumber :{{user.count}}<br><br></strong>-->
+                        <!--</div>-->
+
+
+
+
+                        <!--<div class="col-md-3 col-sm-6 text-center">-->
+                        <!--<button class="btn btn-primary btn-block btn-md btn-danger"  (click)="deleteUser()"><span class="fa fa-facebook-square"></span> Delete  </button>-->
+                        <!--</div>-->
+                        <!---->
+                        <!--<div class="col-md-3 col-sm-6 text-center">-->
+                       <!---->
+                        <!--<button class="btn btn-success btn-block btn-md"  (click)="EditUser()"><span class="fa fa-twitter-square"></span> Edit </button>-->
+                        <!--</div>-->
+
+
+                                 <!--</div>-->
+                             <!--</div>-->
+                           <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+</div>
+
+

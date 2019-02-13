@@ -1,0 +1,55 @@
+<!-- <div>
+  <ul *ngFor="let user of users$ ">
+    <li>
+        {{user.username}} - {{user.usergender}} 
+        <button [routerLink]="['/user', user.userid]" class="btn btn primary">
+          User Details 
+        </button>
+    </li>
+  </ul>
+</div> -->
+
+<!--<table class="table">-->
+    <!--<thead style="background-color: lightgray">-->
+      <!--<tr>-->
+        <!--<th scope="col">#</th>-->
+        <!--<th scope="col">Name</th>-->
+        <!--<th scope="col">Gender</th>-->
+        <!--<th scope="col">Detail</th>-->
+      <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody *ngFor="let user of users$">-->
+      <!--<tr>-->
+        <!--<th scope="row">-</th>-->
+        <!--<td>{{user.username}}</td>-->
+        <!--<td>{{user.usergender}}</td>-->
+        <!--<td><button [routerLink]="['/user', user.userid]" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span>Details</button></td>-->
+      <!--</tr>-->
+    <!--</tbody>-->
+  <!--</table>-->
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+  <table class="table table-striped custab">
+    <thead style="background-color: lightgray">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Detail</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let user of users$">
+    <tr>
+      <th scope="row">-</th>
+      <td>{{user.username}}</td>
+      <td>{{user.usergender}}</td>
+      <td><button [routerLink]="['/user', user.userid]" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span>Details</button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
